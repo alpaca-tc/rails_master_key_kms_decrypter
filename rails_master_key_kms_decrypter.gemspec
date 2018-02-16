@@ -11,8 +11,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['alpaca-tc']
   spec.email         = ['alpaca-tc@alpaca.tc']
 
-  spec.summary       = 'Write a short summary, because RubyGems requires one.'
-  spec.description   = 'Write a longer description or delete this line.'
+  spec.summary       = 'AWS KMS decryption for rails credentials'
+  spec.description   = 'AWS KMS decryption for rails credentials'
   spec.homepage      = 'https://github.com/alpaca-tc/rails_master_key_kms_decrypter'
   spec.license       = 'MIT'
 
