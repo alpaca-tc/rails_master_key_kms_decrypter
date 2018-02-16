@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RailsMasterKeyKmsDecrypter
   class KmsEncryptedConfiguration < ActiveSupport::EncryptedConfiguration
     attr_reader :encrypted_env_key, :encrypted_key_path
@@ -7,7 +9,7 @@ module RailsMasterKeyKmsDecrypter
 
       @encrypted_env_key = "#{key_path}.enc"
       @encrypted_key_path = "ENCRYPTED_#{env_key}"
-    end<`0`>
+    end
 
     def key
       read_encrypted_env_key || read_encrypted_key_file || super
@@ -17,7 +19,7 @@ module RailsMasterKeyKmsDecrypter
 
     def from_encrypted_key(value)
       decrypt_master_key(value) if value
-    rescue
+    rescue StandardError
       nil
     end
 

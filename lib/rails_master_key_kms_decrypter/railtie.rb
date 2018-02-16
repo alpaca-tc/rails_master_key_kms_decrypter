@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module RailsMasterKeyKmsDecrypter
   module WithKmsEncryptedConfiguration
-    def encrypted(path, key_path: "config/master.key", env_key: "RAILS_MASTER_KEY")
+    def encrypted(path, key_path: 'config/master.key', env_key: 'RAILS_MASTER_KEY')
       ActiveSupport::KmsEncryptedConfiguration.new(
         config_path: Rails.root.join(path),
         key_path: Rails.root.join(key_path),
