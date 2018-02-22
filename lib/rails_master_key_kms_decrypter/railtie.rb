@@ -5,7 +5,7 @@ require 'rails'
 module RailsMasterKeyKmsDecrypter
   module WithKmsEncryptedConfiguration
     def encrypted(path, key_path: 'config/master.key', env_key: 'RAILS_MASTER_KEY')
-      ActiveSupport::KmsEncryptedConfiguration.new(
+      RailsMasterKeyKmsDecrypter::KmsEncryptedConfiguration.new(
         config_path: Rails.root.join(path),
         key_path: Rails.root.join(key_path),
         env_key: env_key,
