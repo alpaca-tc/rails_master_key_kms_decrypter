@@ -11,9 +11,9 @@ module RailsMasterKeyKmsDecrypter
       @client = Aws::KMS::Client.new(client_options)
     end
 
-    def decrypt(value)
-      decoded = Base64.decode64(value)
-      response = client.decrypt(ciphertext_blob: decoded)
+    def decrypt(value, **options)
+      decoded = Base64.strict_decode64(value)
+      response = client.decrypt(ciphertext_blob: decoded, **options)
       response.plaintext
     end
   end
