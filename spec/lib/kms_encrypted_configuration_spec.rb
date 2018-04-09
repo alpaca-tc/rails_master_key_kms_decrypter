@@ -40,7 +40,7 @@ RSpec.describe RailsMasterKeyKmsDecrypter::KmsEncryptedConfiguration do
         super().merge("ENCRYPTED_#{env_key}" => 'invalid')
       end
 
-      it { is_expected.to be_nil }
+      it { expect { subject }.to raise_error(ArgumentError) }
     end
 
     context 'when valid ENCRYPTED_RAILS_MASTER_KEY is exist' do

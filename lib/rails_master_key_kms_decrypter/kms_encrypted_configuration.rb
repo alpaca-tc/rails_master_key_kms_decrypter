@@ -29,8 +29,6 @@ module RailsMasterKeyKmsDecrypter
 
     def from_encrypted_key(value)
       decrypt_master_key(value) if value
-    rescue StandardError
-      nil
     end
 
     def decrypt_master_key(value)
