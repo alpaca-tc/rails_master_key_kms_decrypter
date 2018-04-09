@@ -34,7 +34,7 @@ RSpec.describe RailsMasterKeyKmsDecrypter::Decryption do
 
     context 'given invalid value' do
       let(:value) { 'AQICAHiF' }
-      it { expect { subject }.to raise_error(Aws::KMS::Errors::InvalidCiphertextException) }
+      it { expect { subject }.to raise_error(Aws::Errors::ServiceError) }
     end
   end
 end
