@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/alpaca-tc/rails_master_key_kms_decrypter.png)](https://travis-ci.org/alpaca-tc/rails_master_key_kms_decrypter)
+
 # RailsMasterKeyKmsDecrypter
 
 Dynamic decryptier of encrypted `config/master.key` on EC2.

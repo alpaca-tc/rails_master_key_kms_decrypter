@@ -5,6 +5,17 @@ RSpec.describe RailsMasterKeyKmsDecrypter::Decryption do
     subject { instance.decrypt(value) }
     let(:instance) { described_class.new(region: 'ap-northeast-1') }
 
+    before do
+      stub_const('ENV', credentials)
+    end
+
+    let(:credentials) do
+      {
+        'AWS_SECRET_ACCESS_KEY' => 'xxxxxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+        'AWS_ACCESS_KEY_ID' => 'xxxxxxxxxxxxxxxxxxxx'
+      }
+    end
+
     context 'given valid value' do
       # aws kms encrypt --key-id xxx --plaintext fileb://<(echo "hello world") --output text --query CiphertextBlob
       let(:value) { 'AQICAHiFVeg2mwmE39ysBtph0yeqHDsJpNxrzlUu5fcguztrKgGLe4r4yqk9OZ0dOsvhmxgZAAAAajBoBgkqhkiG9w0BBwagWzBZAgEAMFQGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMpCjtzRCEI1eo1Rq0AgEQgCdmcJdYz0VERhvtDIV6iVJ989DTKVt1fm6ubL9Z05Ox38q9orP8RAA=' }
